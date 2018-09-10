@@ -1,20 +1,24 @@
-// added here so it is always working
 .about-me {
   @include container;
   @include clearfix;
+
   margin-top: 5em;
   margin-bottom: 5em;
 }
+
 .about-img {
   max-height: 25em;
+
   @media (min-width: 42em) {
     float: left;
     margin-right: 1em;
   }
 }
+
 .about-title {
   margin-bottom: 0.25em;
 }
+
 .about-subtitle {
   margin: 0.5em 0;
 }
@@ -22,7 +26,6 @@
 @supports (display: grid) {
   .about-me {
     display: grid;
-    // Used to overlap Joe image and title Joe Portfolio
     grid-template-columns:
       [port-start] minmax(6em, 1fr) [name-start] minmax(6em, 1fr)
       [img-end] 2fr [port-end];
@@ -37,6 +40,7 @@
       grid-row: 1 / 4;
     }
   }
+
   .about-title {
     grid-column: name / port;
     grid-row: 1 / 2;
@@ -48,14 +52,15 @@
     grid-column: port / port;
 
     @include mq {
-      grid-column: image-end / port-end;
+      grid-column: img-end / port-end;
     }
   }
-}
 
-.about-subtitle {
-  grid-row: 2 / 3;
-}
-.about-text {
-  grid-row: 3 / 4;
+  .about-subtitle {
+    grid-row: 2 / 3;
+  }
+
+  .about-text {
+    grid-row: 3 / 4;
+  }
 }
